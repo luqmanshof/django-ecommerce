@@ -145,6 +145,6 @@ MESSAGE_TAGS = {
 # SMTP Configurations
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'enthralsystem@gmail.com'
+EMAIL_HOST_USER = 'watlids.treasured@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
