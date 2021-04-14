@@ -36,6 +36,9 @@ def register(request):
             user.phone_number = phone_number
             user.save()
 
+            userprofile = UserProfile(user=user)
+            userprofile.save()
+
             # USER ACTIVATION
             current_site = get_current_site(request)
             mail_subject = "Please activate your account"
@@ -248,7 +251,6 @@ def edit_profile(request):
     userprofile = get_object_or_404(UserProfile, user=request.user)
 
     if request.method == 'POST':
-        userprofile = get_object_or_404(UserProfile, user=request.user)
         user_form = UserForm(request.POST, instance=request.user)
         profile_form = UserProfileForm(
             request.POST, request.FILES, instance=userprofile)

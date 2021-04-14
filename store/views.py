@@ -4,7 +4,7 @@ from django.core import paginator
 from carts.models import CartItem
 from category.models import Category
 from django.shortcuts import get_object_or_404, redirect, render
-from store.models import Product, ReviewRating
+from store.models import Product, ProductGallery, ReviewRating
 from category.models import Category
 from carts.views import _cart_id
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -64,11 +64,16 @@ def product_detail(request, category_slug, product_slug):
     reviews = ReviewRating.objects.filter(
         product_id=single_product.id, status=True)
 
+    # Get Product Gallery
+    product_gallery = ProductGallery.objects.filter(
+        product_id=single_product.id)
+
     context = {
         'single_product': single_product,
         'in_cart': in_cart,
         'orderproduct': orderproduct,
         'reviews': reviews,
+        'product_gallery': product_gallery,
     }
 
     return render(request, 'store/product_detail.html', context)
