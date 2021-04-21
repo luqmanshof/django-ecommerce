@@ -65,7 +65,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-SESSION_EXPIRE_SECONDS = 86400  # 1 hour = 3600
+SESSION_EXPIRE_SECONDS = 86500  # 1 hour = 3600
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_TIMEOUT_REDIRECT = 'login'
 
