@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from django.contrib.messages import constants as messages
 from pathlib import Path
 from decouple import config
+
 import os
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -59,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 SESSION_EXPIRE_SECONDS = 86400  # 1 hour = 3600
@@ -112,12 +116,37 @@ AUTH_USER_MODEL = 'accounts.Account'
 #         }
 #     }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'watlids_ecommerce_db',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Password@123',
+#         'HOST': 'localhost',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('ENGINE'),
+#         'NAME': config('NAME'),
+#         'USER': config('USER'),
+#         'PASSWORD': config('PASSWORD'),
+#         'HOST': config('HOST'),
+#     }
+# }
+
+
+DATABASES = {'default': dj_database_url.config(
+    default='postgres://user:Password@123@localhost/watlids_ecommerce_db')}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -197,3 +226,7 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+
+# Whitenoise settings
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
