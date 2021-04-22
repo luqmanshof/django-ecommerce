@@ -26,8 +26,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = '77(46ecg=w$h#$tt7wa_e-pqife%$_a@0$%*u436fzys9$zg49'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=True, cast=bool)
@@ -145,8 +144,9 @@ AUTH_USER_MODEL = 'accounts.Account'
 # }
 
 
-DATABASES = {'default': dj_database_url.config(
-    default='postgres://user:Password@123@localhost/watlids_ecommerce_db')}
+# DATABASES = {'default': dj_database_url.config(
+#     default='postgres://user:Password@123@localhost/watlids_ecommerce_db')}
+DATABASES = {'default': dj_database_url.config(default=config('DATABASE'))}
 
 
 # Password validation
