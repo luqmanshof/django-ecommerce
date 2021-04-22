@@ -32,7 +32,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = [
-    'ecommerce-watlids-env.eba-itpfm6kd.us-west-2.elasticbeanstalk.com', '*']
+    'https://stark-garden-20753.herokuapp.com', '*']
 
 
 # Application definition
