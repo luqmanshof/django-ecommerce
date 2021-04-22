@@ -133,20 +133,20 @@ AUTH_USER_MODEL = 'accounts.Account'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': config('ENGINE'),
-        'NAME': config('NAME'),
-        'USER': config('USER'),
-        'PASSWORD': config('PASSWORD'),
-        'HOST': config('HOST'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('ENGINE'),
+#         'NAME': config('NAME'),
+#         'USER': config('USER'),
+#         'PASSWORD': config('PASSWORD'),
+#         'HOST': config('HOST'),
+#     }
+# }
 
 
 # DATABASES = {'default': dj_database_url.config(
 #     default='postgres://user:Password@123@localhost/watlids_ecommerce_db')}
-# DATABASES = {'default': dj_database_url.config(default=config('DATABASE'))}
+DATABASES = {'default': dj_database_url.config(default=config('DATABASE'))}
 
 
 # Password validation
