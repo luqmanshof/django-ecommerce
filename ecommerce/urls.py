@@ -29,5 +29,5 @@ urlpatterns = [
     path('cart/', include('carts.urls')),
     path('accounts/', include('accounts.urls')),
     path('orders/', include('orders.urls')),
-    path('vplnq6tyodjwndz26r3yl40b8iv5jp.html/', views.facebk, name='facebk'),
+    path('5ntmw9n8s86508ouzmkg6heqmlrhm7.html/', views.facebk, name='facebk'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
