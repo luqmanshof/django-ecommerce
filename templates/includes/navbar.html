@@ -8,17 +8,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarTop4">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
+            <!-- <li><p class="text-muted"> Watlids Treasured Place </p></li> -->
+            <li>
+                <a href="{% url 'home' %}" class="brand-wrap">
+                    <img class="logo" src="{% static './images/watlids-name-logo.png' %}">
+                </a> <!-- brand-wrap.// -->
+            </li>
+            <!-- <li class="nav-item dropdown">
                  <a href="#" class="nav-link">   English </a>
                 
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"> USD </a>
-            </li>
+                <a href="#" class="nav-link"> NGN </a>
+            </li> -->
         </ul>
         <ul class="navbar-nav">
-            <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
-            <li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+            <!-- <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
+            <li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li> -->
+            <li><a href="#" class="nav-link">   English </a></li>
+            <li><a href="#" class="nav-link">   NGN </a></li>
         </ul> <!-- list-inline //  -->
       </div> <!-- navbar-collapse .// -->
     </div> <!-- container //  -->
@@ -27,10 +35,11 @@
     <section class="header-main border-bottom">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-3 col-md-6 col-6">
+                <div class="col-lg-3 col-md-6 col-6" hidden>
                     <a href="{% url 'home' %}" class="brand-wrap">
                         <img class="logo" src="{% static './images/logo3.png' %}">
                     </a> <!-- brand-wrap.// -->
+                    
                 </div>
                 <div class="col-lg col-sm col-md col-6 flex-grow-0">
                     <div class="category-wrap dropdown d-inline-block float-right">
